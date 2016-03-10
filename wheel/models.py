@@ -7,10 +7,12 @@ from django.utils import timezone
 
 class Project(models.Model):
     name = models.CharField(max_length=200)
+    xp_type = models.CharField(max_length=200)
     desc = models.TextField()
     creator = models.CharField(max_length=200)
     creator_link = models.CharField(max_length=200)
     creation_date = models.DateField()
+    needed_stuff = models.CharField(max_length=200)
     submission_date = models.DateField()
     project_link = models.CharField(max_length=200)
 
