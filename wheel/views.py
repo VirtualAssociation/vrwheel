@@ -9,7 +9,13 @@ from django.utils import timezone
 from wheel.models import Project, Image
 from wheel.forms import ProjectSubmitForm
 
+from vrwheel import settings
+
 def random_project(request):
+
+    # print('> BASE_DIR ' + settings.BASE_DIR)
+    # print('> PROJECT_ROOT ' + settings.PROJECT_ROOT)
+    # print('> STATICFILES_DIRS ' + str(settings.STATICFILES_DIRS))
 
     random.seed(time.time())
     projects = Project.objects.all()

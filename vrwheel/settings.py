@@ -20,13 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q1qqj(*jl89d)m6l^#5igf2s8w*wk6wn41nu(0k43)f)9*rje#'
+SECRET_KEY = 'roulettezqj0jb7$tom_7_=e&ipiumhn^ci5_h((4(luebdba(_n!)2y-t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -64,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media'
             ],
         },
     },
@@ -119,4 +119,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+# MEDIA_ROOT = 'D:/Projects/dev/vrwheel/media/'
+MEDIA_URL = 'media/'
+
 STATIC_URL = '/static/'
+
+
+
+# STATICFILES_FINDERS = (
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+# )
+
+# PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
+
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
