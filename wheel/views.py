@@ -3,10 +3,12 @@ import time
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.utils import timezone
 
 from wheel.models import Project, Image
+from wheel.forms import ProjectSubmitForm
 
-def index(request):
+def random_project(request):
 
     random.seed(time.time())
 
@@ -34,3 +36,32 @@ def index(request):
         )
 
     return HttpResponse(project_view)
+
+def submit_project(request):
+    form = ProjectSubmitForm()
+    return render(request, 'wheel/submit_form.html', {'form': form})
+
+def submit_project_ok(request):
+    if request.method == 'POST':
+        form = ProjectSubmitForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            print(data)
+            p = Project(name=data['name'],
+                xp_type=data['xp_type'],
+                desc=data['desc'],
+                creator=data['creator'],
+                creator_link=data['creator_url'],
+                creation_date=data['creation_date'],
+                needed_stuff=data['stuff'],
+                submission_date=timezone.now(),
+                project_link=data['url']
+                )
+            p.save()
+            print(str(p) + ' saved')
+            return render(request, 'wheel/submit_ok.html')
+        else:
+            print(str(form.errors))
+            return render(request, 'wheel/submit_failure.html')
+    return render(request, 'wheel/submit_ok.html')
+

@@ -1,0 +1,5 @@
+<form action="/wheel/submit_project_ok/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
