@@ -1,1 +1,1 @@
-web: bin/start-pgbouncer-stunnel gunicorn --pythonpath vrwheel vrwheel.wsgi
+web: gunicorn --pythonpath vrwheel vrwheel.wsgi
