@@ -1,12 +1,28 @@
 {% extends "wheel/fullpage.html" %}
 
+{% load staticfiles %}
+
 {% block content %}
+
 <div class="project">
-    <h1 class="name">{{name}}</h1>
-    <h2 class="xp_type">{{xp_type}}</h2>
-    <p class="desc">{{desc}}</p>
-    <h2 class="creator">Created by <a href="{{creator_url}}">{{creator}}</a> in {{creation_date}}</h2>
-    <h2 class="stuff">Needed stuff : {{stuff}}</h2>
-    <a class="url" href="{{project_url}}">View Project</a>
+
+    <div class="project_image">
+        <img src="{% static 'img/default.png' %}">
+    </div>
+
+    <div class="project_desc">
+        <h1 class="name">{{name}}</h1>
+        <a class="url" href="{{project_url}}">View Project</a>
+        <h2 class="xp_type">{{xp_type}}</h2>
+
+        <!-- TODO : replace the lorem by the real project desc. -->
+        <!-- <p class="desc">{{desc}}</p> -->
+        <p class="desc">{% lorem 1 random %}</p>
+
+        <h2 class="creator">Created by <a href="{{creator_url}}">{{creator}}</a> in {{creation_date}}</h2>
+        <h2>Needed stuff : <span class="stuff">{{stuff}}</span></h2>
+        
+    </div>
 </div>
+
 {% endblock %}

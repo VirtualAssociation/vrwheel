@@ -116,21 +116,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
-# MEDIA_ROOT = 'D:/Projects/dev/vrwheel/media/'
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
-
 
 STATICFILES_FINDERS = (
      'django.contrib.staticfiles.finders.FileSystemFinder',
      'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-
-# PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
 
 STATICFILES_DIRS = (
      os.path.join(BASE_DIR, 'static'),

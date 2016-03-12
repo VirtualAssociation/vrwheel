@@ -3,6 +3,7 @@
     <head>
         <title>VRRoulette</title>
 
+
         {% load staticfiles %}
 
         {% block css %}
@@ -10,29 +11,31 @@
         {% endblock %}
 
         {% block js %}
-        <script src="script.js"></script>
         {% endblock %}
+
+        <link href='https://fonts.googleapis.com/css?family=Oswald:400, 300, 700' rel='stylesheet' type='text/css'>
 
     </head>
 
     <body>
-    <img src="media/images/mount-tower.jpg"/>
-        <div id="container" >
+        <div id="content">
             <div id="header">
                 {% block header %}
                 {% include "wheel/header.html" %}
                 {% endblock %}
             </div>
-            <div id="content">
-                {% block content %}
-                <h3>Super App</h3>
-                {% endblock %}
-            </div>
-            <div id="footer">
-                {% block footer %}
-                {% include "wheel/footer.html" %}
-                {% endblock %}
-            </div>
+
+            {% block content %}
+            <h3>Super App</h3>
+            {% endblock %}
+        </div>
+
+        <div class="clear"></div>
+        
+        <div id="footer">
+            {% block footer %}
+            {% include "wheel/footer.html" %}
+            {% endblock %}
         </div>
     </body>
 </html>

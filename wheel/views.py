@@ -28,15 +28,15 @@ def random_project(request):
         'creator_url': proj.creator_url,
         'creator': proj.creator,
         'creation_date': '{mon} {year}'.format(mon=calendar.month_name[proj.creation_date.month], year=proj.creation_date.year),
-        'stuff': proj.needed_stuff,
-        'url': proj.project_url
+        'stuff': proj.needed_stuff.replace('[', '').replace(']', '').replace('\'', ''),
+        'project_url': proj.project_url
     })
 
-def submit_project(request):
+def submit(request):
     form = ProjectSubmitForm()
     return render(request, 'wheel/submit_form.html', {'form': form})
 
-def submit_project_ok(request):
+def submit_ok(request):
     if request.method == 'POST':
         form = ProjectSubmitForm(request.POST)
         if form.is_valid():
@@ -52,6 +52,7 @@ def submit_project_ok(request):
                 project_url=data['url']
                 )
             p.save()
+            print('Project submited ! ' + p.name )
             return render(request, 'wheel/submit_ok.html')
         else:
             print(str(form.errors))

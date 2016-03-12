@@ -1,5 +1,15 @@
-<form action="/wheel/submit_ok/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
+{% extends "wheel/fullpage.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="submit_form">
+    <form action="/wheel/submit_ok/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+
+{% endblock %}
